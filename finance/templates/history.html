@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<table class="table table-striped">
+
+    <thead>
+        <tr>
+            <th class="text-start">Symbol</th>
+            <th class="text-start">Name</th>
+            <th class="text-start">Price</th>
+            <th class="text-end">Shares</th>
+            <th class="text-end">Total Traded</th>
+            <th class="text-end">Date</th>
+            <th class="text-end">Order</th>
+        </tr>
+    </thead>
+    <tbody>
+        <h4>HISTORY</h4>
+        {% for msg in msg %}
+        <tr>
+            <td class="text-start">{{ msg["symbol"] }}</td>
+            <td class="text-start">{{ msg["name"] }}</td>
+            <td class="text-start">{{ msg["price"] }}</td>
+            <td class="text-end">{{ msg["quantity"] }}</td>
+            <td class="text-end">${{ msg["total_purc"] }}</td>
+            <td class="text-end">{{ msg["date"] }}</td>
+            <td class="text-end">{{ msg["order_type"] }}</td>
+
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}

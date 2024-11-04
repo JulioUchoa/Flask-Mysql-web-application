@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <table class="table table-striped">
+
+        <thead>
+            <tr>
+                <th class="text-start">Symbol</th>
+                <th class="text-start">Name</th>
+                <th class="text-end">Shares</th>
+                <th class="text-end">Price</th>
+                <th class="text-end">TOTAL</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for msg in msg %}
+            <tr>
+                <td class="text-start">{{ msg["symbol"] }}</td>
+                <td class="text-start">{{ msg["name"] }}</td>
+                <td class="text-end">{{ msg["quantity"] }}</td>
+                <td class="text-end">{{ msg["price"] }}</td>
+                <td class="text-end"> ${{ msg["total_purc"] }}</td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="4">Cash Avaliable</td>
+                <td class="border-0 text-end"> {{ cash_avaliable }}</td>
+            </tr>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="4">TOTAL OWNED</td>
+                <td class="border-0 w-bold text-end"> {{ total_owned }}</td>
+            </tr>
+        </tfoot>
+
+    </table>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+   <p>
+        A shre of {{ msg.name }} costs  {{ usd_function(msg.price) }}.
+   </p>
+
+{% endblock %}
